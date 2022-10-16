@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height":600,
+    "data": {
+        "url":"https://raw.githubusercontent.com/kgoh0018/FIT3179-Assignment2/main/data/ds_salaries.csv"
+    },
+    "params": [{
+        "name": "work_year",
+        "value": 2020,
+        "bind": {
+            "input": "range",
+            "min": 2020,
+            "max": 2022,
+            "step": 1,
+            "name": "Year: "
+        }
+        }],
+    "transform": [
+        {"filter": "datum.work_year == work_year"}
+    ],
+    "layer": [
+        {
+            "params": [{"name": "highlight","select":"point"}],
+            "mark":{"type": "rect", "strokeWidth": 2},
+            "encoding": {
+                "y": {"field": "experience_level", "type":"ordinal", "title":"Level of Experience"},
+                "x": {"field": "job_title", "type":"nominal", "title":"Title of Job"},
+                "fill": {"aggregate":"sum", "field": "salary_in_usd", "title":"Sum Salary(USD)","scale":{"scheme":"oranges"}},
+                "stroke": {
+                    "condition": {
+                        "param": "highlight",
+                        "empty": false,
+                        "value": "black"
+                    },
+                    "value": null
+                },
+                "opacity":{
+                    "condition":{"param": "highlight", "value": 1},
+                    "value": 0.5
+                },
+                "order":{
+                    "condition": {"param": "highlight", "value": 1},
+                    "value": 0
+                },
+                "tooltip": [
+                    {"field": "job_title", "type": "nominal", "title":"Title of Job"},
+                    {"field": "experience_level", "type": "ordinal", "title":"Level of experience"},
+                    {"aggregate":"sum", "field": "salary_in_usd", "type": "quantitative", "title":"Sum Salary", "format": ","}
+                ]
+            }
+        }
+    ]
+}

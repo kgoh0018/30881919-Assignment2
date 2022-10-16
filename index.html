@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 Visualization</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+          <div class="pure-u-1-1">
+            <h1><span style="color: orange">Data Science</span> Related Job Salaries</h1>
+          </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description description-left">
+                    <p>
+                        <span style="color: orange"><span style="font-weight: bold">Data Science</span></span> is one of the upcoming popular jobs. It is a field of study that combines 
+                        domain expertise, programming skills, and knowledge of mathematics and statistics to extract meaningful insights from data. 
+                        These insights can then be used by the company or individual to improve on their sales and their reputation. 
+                    </p>
+                </div>
+            </div>
+
+            <div class="pure-u-1-2">
+                <div class="description description-center">
+                    <p>
+                        <span style="color: orange"><span style="font-weight: bold">Data Science</span></span> related job has become more and more popular and it has more demand compared to
+                        the last previous years. At some countries, some companies even offer high salary pay for their employees. Different country 
+                        receive different salary payment depending on the demand of Data Scientist.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <hr class="hr3">
+        <br>
+    
+        <!-- pure grid group -->
+        <h2>Choropleth Map of Countries Having <span style="color: orange">Data Science</span> Related Job and Salaries</h2>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id = "vis1" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <hr class="hr3">
+        <br>
+
+        <!-- pure grid group -->
+        <h2>Heat Map Showing The Relationship Between Salaries and Job Experience</h2>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id = "vis3" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <br>
+
+        <!-- pure grid group -->
+        <h2>Pie Chart Showing The Count of <span style="color: orange">Data Science</span> Related Jobs</h2>
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div id = "vis2" class="vis-container"></div>
+            </div>
+
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                    <p>
+                        <span style="color: orange"><span style="font-weight: bold">Data Science</span></span> related job offers various kind of jobs and these jobs are more 
+                        technical than the others. These jobs are offered much higher pay than the others. As such, various kind of factors such as 
+                        <span style="font-weight: bold">experience level</span> affects the salary that are offered by the company. 
+                        <br>
+                        <br>
+                        <br>
+                        As we can see from the pie chart, Data Scientist has the highest number of employment, followed by Data Engineer and Data Analyst.
+                        These jobs can be seen that it is more attractive by the people nowadays. The sum of salaries for Data Scientist is the highest which
+                        we can see from the heat map above. It is also shown that no matter the experience level, Data Scientist has the majority of the 
+                        salaries. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <hr class="hr3">
+        <br>
+
+        <!-- pure grid group -->
+        <h2>Relatioship Between The Company's Size and Salaries</h2>
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div id = "vis4" class="vis-container"></div>
+            </div>
+
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                    <p>
+                        The salaries also depends on the size of the company as we all know bigger company offers higher salary.
+                        However, according to the graph, it seems like medium size companies are offering much higher salary than 
+                        larger size company for  <span style="color: orange"><span style="font-weight: bold">Data Science</span></span> related job.
+                        <br>
+                        <br>
+                        <br>
+                        This may due to the higher number of employees working on the same project, resulting in lesser share of salaries. The other cause 
+                        might be due to COVID-19 which larger size companies might suffer more lose compare to medium size companies
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <div class="pure-g">
+            <div class="pure-u-1-1 small-font">
+                <p>
+                    This visualisation is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">Goh Kai Yuan</a>. 
+                    The datasource is found in <a href="https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries" target=" _blank">Kaggle</href>.
+                </p>
+            </div>
+          </div>
+
+    </div>
+    
+
+    <script type="text/javascript">
+        var spec1 = "js/choropleth.vg.json";
+        vegaEmbed('#vis1', spec1);
+
+        var spec2 = "js/arc_jobtitle.json";
+        vegaEmbed('#vis2', spec2);
+
+        var spec3 = "js/heatmap.json";
+        vegaEmbed('#vis3', spec3);
+
+        var spec4 = "js/blob.json";
+        vegaEmbed('#vis4', spec4);
+
+
+        print(brush)
+    </script>
+
+</body>
+</html>

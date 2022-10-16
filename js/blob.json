@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 550,
+    "height": 100,
+    "data": {
+        "url": "https://raw.githubusercontent.com/kgoh0018/FIT3179-Assignment2/main/data/ds_salaries.csv"
+    },
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "field": "work_year",
+        "type": "temporal",
+        "title": "Year",
+        "axis": {"grid": false}
+      },
+      "y": {
+        "aggregate":"sum",
+        "field": "salary_in_usd",
+        "type": "quantitative",
+        "title": "Price",
+        "axis": {"grid": false}
+      },
+      "color": {
+        "field": "company_size",
+        "type": "nominal",
+        "legend": null
+      },
+      "row": {
+        "field": "company_size",
+        "type": "nominal",
+        "title": "Size of Company"
+      }
+    }
+  }
+  
